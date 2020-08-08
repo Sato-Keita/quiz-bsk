@@ -1,3 +1,12 @@
+import VueRouter from 'vue-router';
+
+import HeaderComponent from "./components/HeaderComponent";
+import FooterComponent from "./components/FooterComponent";
+
+import QuizListComponent from "./components/QuizListComponent";
+import QuizDetailComponent from "./components/QuizDetailComponent";
+import ProfileComponent from "./components/ProfileComponent";
+import ContactFormComponent from "./components/ContactFormComponent";
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -7,6 +16,34 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+
+Vue.use(VueRouter);
+
+const router = new VueRouter({
+    mode: 'history',
+    routes: [
+        {
+            path: '/',
+            name: 'quiz.list',
+            component: QuizListComponent
+        },
+        {
+            path: '/quiz_detail',
+            name: 'quiz.detail',
+            component: QuizDetailComponent
+        },
+        {
+            path: '/profile',
+            name: 'quiz.profile',
+            component: ProfileComponent
+        },
+        {
+            path: '/contact',
+            name: 'quiz.contact',
+            component: ContactFormComponent
+        },
+    ]
+});
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,7 +56,9 @@ window.Vue = require('vue');
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('header-component', HeaderComponent);
+Vue.component('footer-component', FooterComponent);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,4 +68,6 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 const app = new Vue({
     el: '#app',
+    router
 });
+

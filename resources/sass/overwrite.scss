@@ -1,0 +1,62 @@
+.component{
+    width: 100%;
+}
+
+.footer{
+    p{
+        margin: 0;
+    }
+}
+
+
+.sns-icon{
+    width: 20%;
+
+    img{
+        width: 100%;
+    }
+}
+
+.quiz-list{
+    padding: 1rem 2rem;
+
+    >div{
+        margin: 0 auto 1.5rem;
+        width: 80%;
+    }
+}
+
+.quiz-detail{
+    .quiz-mv, .quiz-text, .quiz-choices-list, .quiz-answer{
+        margin: 0 auto;
+    }
+
+    .quiz-mv{
+        display: block;
+    }
+
+    .quiz-text{
+
+    }
+
+    .quiz-choices-list{
+        width: 60%;
+
+        div{
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+
+    .quiz-answer{
+        width: 60%;
+    }
+}
+
+.profiles{
+    .sns-icons-wrap{
+        width: 20%;
+    }
+}
+
+

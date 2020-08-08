@@ -1,0 +1,53 @@
+.component {
+  width: 100%;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.sns-icon {
+  width: 20%;
+}
+
+.sns-icon img {
+  width: 100%;
+}
+
+.quiz-list {
+  padding: 1rem 2rem;
+}
+
+.quiz-list > div {
+  margin: 0 auto 1.5rem;
+  width: 80%;
+}
+
+.quiz-detail .quiz-mv,
+.quiz-detail .quiz-text,
+.quiz-detail .quiz-choices-list,
+.quiz-detail .quiz-answer {
+  margin: 0 auto;
+}
+
+.quiz-detail .quiz-mv {
+  display: block;
+}
+
+.quiz-detail .quiz-choices-list {
+  width: 60%;
+}
+
+.quiz-detail .quiz-choices-list div {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.quiz-detail .quiz-answer {
+  width: 60%;
+}
+
+.profiles .sns-icons-wrap {
+  width: 20%;
+}
+
