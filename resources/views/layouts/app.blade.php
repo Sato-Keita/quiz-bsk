@@ -74,7 +74,7 @@
         </nav>
 
         <!-- 追加 -->
-        <example-component></example-component>
+        <!-- <example-component></example-component> -->
 
         <main class="py-4">
             @yield('content')

@@ -2408,7 +2408,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      tasks: []
+    };
+  },
+  methods: {
+    getTasks: function getTasks() {
+      var _this = this;
+
+      axios.get('/api/quizlist').then(function (res) {
+        _this.tasks = res.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getTasks();
+    console.log("its ok");
+    console.log(this);
+    console.log(this.tasks[0]);
+  }
+});
 
 /***/ }),
 
@@ -38621,382 +38661,439 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "component" }, [
+    _c("h1", { staticClass: "text-center mt-5 mb-5" }, [
+      _vm._v("ページタイトル")
+    ]),
+    _vm._v(" "),
+    _c("h2", { staticClass: "text-center mb-5" }, [_vm._v("プロフィール")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("h2", { staticClass: "text-center mb-5" }, [_vm._v("クイズリスト")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "quiz-list" },
+      [
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _vm._l(_vm.tasks, function(task) {
+          return _c("div", [
+            _c("a", { attrs: { href: "/quiz_detail" } }, [
+              _c("img", { attrs: { src: "", alt: "" } }),
+              _vm._v(" "),
+              _c("h5", { staticClass: "card-header" }, [
+                _vm._v(_vm._s(task.question))
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v("#カテゴリー" + _vm._s(task.id))
+              ])
+            ])
+          ])
+        })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _vm._m(5),
+    _vm._v(" "),
+    _c(
+      "ul",
+      _vm._l(_vm.tasks, function(task) {
+        return _c("li", [
+          _c("p", [_vm._v(_vm._s(task.id))]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(task.main_image))]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(task.question))])
+        ])
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "component" }, [
-      _c("h1", { staticClass: "text-center mt-5 mb-5" }, [
-        _vm._v("ページタイトル")
-      ]),
-      _vm._v(" "),
-      _c("h2", { staticClass: "text-center mb-5" }, [_vm._v("プロフィール")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "d-flex justify-content-around mb-5" }, [
-        _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
-          _c("img", {
-            staticClass: "card-img-top",
-            attrs: {
-              src:
-                "http://placehold.it/640x340/27709b/ffffff?text=Sample+Profile",
-              alt: "..."
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title" }, [_vm._v("タイトル")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v("サンプルサンプルサンプルサンプルサンプル")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "sns-icons-wrap d-flex justify-content-around align-items-center"
-              },
-              [
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/YouTube_Logo.png */ "./resources/img/sns/YouTube_Logo.png"),
-                      alt: "Twitter__icon"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/Twitter_Logo.png */ "./resources/img/sns/Twitter_Logo.png"),
-                      alt: "Twitter_icon"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/Instagram_Logo.png */ "./resources/img/sns/Instagram_Logo.png"),
-                      alt: "Instagram_icon"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/Facebook_Logo.png */ "./resources/img/sns/Facebook_Logo.png"),
-                      alt: "Facebook_icon"
-                    }
-                  })
-                ])
-              ]
-            )
-          ])
-        ]),
+    return _c("div", { staticClass: "d-flex justify-content-around mb-5" }, [
+      _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "http://placehold.it/640x340/27709b/ffffff?text=Sample+Profile",
+            alt: "..."
+          }
+        }),
         _vm._v(" "),
-        _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
-          _c("img", {
-            staticClass: "card-img-top",
-            attrs: {
-              src:
-                "http://placehold.it/640x340/27709b/ffffff?text=Sample+Profile",
-              alt: "..."
-            }
-          }),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("タイトル")]),
           _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title" }, [_vm._v("タイトル")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v("サンプルサンプルサンプルサンプルサンプル")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "sns-icons-wrap d-flex justify-content-around align-items-center"
-              },
-              [
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/YouTube_Logo.png */ "./resources/img/sns/YouTube_Logo.png"),
-                      alt: "Twitter__icon"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/Twitter_Logo.png */ "./resources/img/sns/Twitter_Logo.png"),
-                      alt: "Twitter_icon"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/Instagram_Logo.png */ "./resources/img/sns/Instagram_Logo.png"),
-                      alt: "Instagram_icon"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/Facebook_Logo.png */ "./resources/img/sns/Facebook_Logo.png"),
-                      alt: "Facebook_icon"
-                    }
-                  })
-                ])
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
-          _c("img", {
-            staticClass: "card-img-top",
-            attrs: {
-              src:
-                "http://placehold.it/640x340/27709b/ffffff?text=Sample+Profile",
-              alt: "..."
-            }
-          }),
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v("サンプルサンプルサンプルサンプルサンプル")
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title" }, [_vm._v("タイトル")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v("サンプルサンプルサンプルサンプルサンプル")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "sns-icons-wrap d-flex justify-content-around align-items-center"
-              },
-              [
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/YouTube_Logo.png */ "./resources/img/sns/YouTube_Logo.png"),
-                      alt: "Twitter__icon"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/Twitter_Logo.png */ "./resources/img/sns/Twitter_Logo.png"),
-                      alt: "Twitter_icon"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/Instagram_Logo.png */ "./resources/img/sns/Instagram_Logo.png"),
-                      alt: "Instagram_icon"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/Facebook_Logo.png */ "./resources/img/sns/Facebook_Logo.png"),
-                      alt: "Facebook_icon"
-                    }
-                  })
-                ])
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
-          _c("img", {
-            staticClass: "card-img-top",
-            attrs: {
-              src:
-                "http://placehold.it/640x340/27709b/ffffff?text=Sample+Profile",
-              alt: "..."
-            }
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title" }, [_vm._v("タイトル")]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v("サンプルサンプルサンプルサンプルサンプル")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "sns-icons-wrap d-flex justify-content-around align-items-center"
-              },
-              [
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/YouTube_Logo.png */ "./resources/img/sns/YouTube_Logo.png"),
-                      alt: "Twitter__icon"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/Twitter_Logo.png */ "./resources/img/sns/Twitter_Logo.png"),
-                      alt: "Twitter_icon"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/Instagram_Logo.png */ "./resources/img/sns/Instagram_Logo.png"),
-                      alt: "Instagram_icon"
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
-                  _c("img", {
-                    attrs: {
-                      src: __webpack_require__(/*! ../../img/sns/Facebook_Logo.png */ "./resources/img/sns/Facebook_Logo.png"),
-                      alt: "Facebook_icon"
-                    }
-                  })
-                ])
-              ]
-            )
-          ])
+          _c(
+            "div",
+            {
+              staticClass:
+                "sns-icons-wrap d-flex justify-content-around align-items-center"
+            },
+            [
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/YouTube_Logo.png */ "./resources/img/sns/YouTube_Logo.png"),
+                    alt: "Twitter__icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/Twitter_Logo.png */ "./resources/img/sns/Twitter_Logo.png"),
+                    alt: "Twitter_icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/Instagram_Logo.png */ "./resources/img/sns/Instagram_Logo.png"),
+                    alt: "Instagram_icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/Facebook_Logo.png */ "./resources/img/sns/Facebook_Logo.png"),
+                    alt: "Facebook_icon"
+                  }
+                })
+              ])
+            ]
+          )
         ])
       ]),
       _vm._v(" "),
-      _c("h2", { staticClass: "text-center mb-5" }, [_vm._v("クイズリスト")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "quiz-list" }, [
-        _c("div", [
-          _c("a", { attrs: { href: "/quiz_detail" } }, [
-            _c("div", { staticClass: "card" }, [
-              _c("h5", { staticClass: "card-header" }, [_vm._v("Q")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v("クイズタイトル")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [_vm._v("#カテゴリー")])
-              ])
-            ])
-          ])
-        ]),
+      _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "http://placehold.it/640x340/27709b/ffffff?text=Sample+Profile",
+            alt: "..."
+          }
+        }),
         _vm._v(" "),
-        _c("div", [
-          _c("a", { attrs: { href: "/quiz_detail" } }, [
-            _c("div", { staticClass: "card" }, [
-              _c("h5", { staticClass: "card-header" }, [_vm._v("Q")]),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("タイトル")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v("サンプルサンプルサンプルサンプルサンプル")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "sns-icons-wrap d-flex justify-content-around align-items-center"
+            },
+            [
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/YouTube_Logo.png */ "./resources/img/sns/YouTube_Logo.png"),
+                    alt: "Twitter__icon"
+                  }
+                })
+              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v("クイズタイトル")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [_vm._v("#カテゴリー")])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("a", { attrs: { href: "/quiz_detail" } }, [
-            _c("div", { staticClass: "card" }, [
-              _c("h5", { staticClass: "card-header" }, [_vm._v("Q")]),
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/Twitter_Logo.png */ "./resources/img/sns/Twitter_Logo.png"),
+                    alt: "Twitter_icon"
+                  }
+                })
+              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v("クイズタイトル")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [_vm._v("#カテゴリー")])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("a", { attrs: { href: "/quiz_detail" } }, [
-            _c("div", { staticClass: "card" }, [
-              _c("h5", { staticClass: "card-header" }, [_vm._v("Q")]),
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/Instagram_Logo.png */ "./resources/img/sns/Instagram_Logo.png"),
+                    alt: "Instagram_icon"
+                  }
+                })
+              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v("クイズタイトル")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "card-text" }, [_vm._v("#カテゴリー")])
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/Facebook_Logo.png */ "./resources/img/sns/Facebook_Logo.png"),
+                    alt: "Facebook_icon"
+                  }
+                })
               ])
-            ])
-          ])
+            ]
+          )
         ])
       ]),
       _vm._v(" "),
-      _c(
-        "ul",
-        { staticClass: "pagination justify-content-center pagination-lg mb-5" },
-        [
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("Previous")
-            ])
+      _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "http://placehold.it/640x340/27709b/ffffff?text=Sample+Profile",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("タイトル")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v("サンプルサンプルサンプルサンプルサンプル")
           ]),
           _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("1")
-            ])
+          _c(
+            "div",
+            {
+              staticClass:
+                "sns-icons-wrap d-flex justify-content-around align-items-center"
+            },
+            [
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/YouTube_Logo.png */ "./resources/img/sns/YouTube_Logo.png"),
+                    alt: "Twitter__icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/Twitter_Logo.png */ "./resources/img/sns/Twitter_Logo.png"),
+                    alt: "Twitter_icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/Instagram_Logo.png */ "./resources/img/sns/Instagram_Logo.png"),
+                    alt: "Instagram_icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/Facebook_Logo.png */ "./resources/img/sns/Facebook_Logo.png"),
+                    alt: "Facebook_icon"
+                  }
+                })
+              ])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "http://placehold.it/640x340/27709b/ffffff?text=Sample+Profile",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("タイトル")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v("サンプルサンプルサンプルサンプルサンプル")
           ]),
           _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("2")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("3")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item" }, [
-            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
-              _vm._v("Next")
-            ])
-          ])
-        ]
-      )
+          _c(
+            "div",
+            {
+              staticClass:
+                "sns-icons-wrap d-flex justify-content-around align-items-center"
+            },
+            [
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/YouTube_Logo.png */ "./resources/img/sns/YouTube_Logo.png"),
+                    alt: "Twitter__icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/Twitter_Logo.png */ "./resources/img/sns/Twitter_Logo.png"),
+                    alt: "Twitter_icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/Instagram_Logo.png */ "./resources/img/sns/Instagram_Logo.png"),
+                    alt: "Instagram_icon"
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "sns-icon", attrs: { href: "#" } }, [
+                _c("img", {
+                  attrs: {
+                    src: __webpack_require__(/*! ../../img/sns/Facebook_Logo.png */ "./resources/img/sns/Facebook_Logo.png"),
+                    alt: "Facebook_icon"
+                  }
+                })
+              ])
+            ]
+          )
+        ])
+      ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("a", { attrs: { href: "/quiz_detail" } }, [
+        _c("div", { staticClass: "card" }, [
+          _c("h5", { staticClass: "card-header" }, [_vm._v("Q")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title" }, [_vm._v("クイズタイトル")]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [_vm._v("#カテゴリー")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("a", { attrs: { href: "/quiz_detail" } }, [
+        _c("div", { staticClass: "card" }, [
+          _c("h5", { staticClass: "card-header" }, [_vm._v("Q")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title" }, [_vm._v("クイズタイトル")]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [_vm._v("#カテゴリー")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("a", { attrs: { href: "/quiz_detail" } }, [
+        _c("div", { staticClass: "card" }, [
+          _c("h5", { staticClass: "card-header" }, [_vm._v("Q")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title" }, [_vm._v("クイズタイトル")]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [_vm._v("#カテゴリー")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("a", { attrs: { href: "/quiz_detail" } }, [
+        _c("div", { staticClass: "card" }, [
+          _c("h5", { staticClass: "card-header" }, [_vm._v("Q")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", { staticClass: "card-title" }, [_vm._v("クイズタイトル")]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-text" }, [_vm._v("#カテゴリー")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      { staticClass: "pagination justify-content-center pagination-lg mb-5" },
+      [
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("Previous")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("1")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("2")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("3")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item" }, [
+          _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+            _vm._v("Next")
+          ])
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true

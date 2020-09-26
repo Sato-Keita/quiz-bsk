@@ -42,5 +42,25 @@
 </template>
 
 <script>
-    export default {}
+    export default {
+        props: {
+            taskId: String
+        },
+        data: function () {
+            return {
+                task: {}
+            }
+        },
+        methods: {
+            getTask() {
+                axios.get('/api/tasks/' + this.taskId)
+                    .then((res) => {
+                        this.task = res.data;
+                    });
+            }
+        },
+        mounted() {
+            this.getTask();
+        }
+    }
 </script>

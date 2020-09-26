@@ -1,0 +1,54 @@
+@charset "UTF-8";
+.user-form,
+.sns-form,
+.quiz-form{
+    width: 100%;
+    padding: 2rem;
+}
+
+.user-form > div,
+.sns-form > div,
+.quiz-form > div{
+    width: 80%;
+    margin: 0 auto;
+}
+
+input.pluralBtn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+}
+
+.add.pluralBtn{
+    margin-right: 1rem;
+}
+
+.sns_input,
+.category_input,
+.select_input{
+    display: flex;
+    align-items: center;
+}
+
+.sns_input > .form-group{
+    width: 40%;
+    margin-right: 2rem;
+}
+
+.category_input > .form-group{
+    width: 70%;
+    margin-right: 2rem;
+}
+
+.select_input > .form-group:first-child{
+    width: 60%;
+    margin-right: 2rem;
+}
+
+.select_input > .form-group:nth-child(2){
+    width: 10%;
+}

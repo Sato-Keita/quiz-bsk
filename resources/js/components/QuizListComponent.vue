@@ -148,8 +148,16 @@
                     </div>
                 </a>
             </div>
-        </div>
 
+            <div v-for="task in tasks">
+                <a href="/quiz_detail">
+                   <img src="" alt="">
+                   <h5 class="card-header">{{task.question}}</h5>
+                    <p class="card-text">#カテゴリー{{task.id}}</p>
+                </a>
+            </div>
+
+        </div>
 
         <ul class="pagination justify-content-center pagination-lg mb-5">
             <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -159,9 +167,37 @@
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
 
+        <ul>
+            <li v-for="task in tasks">
+                <p>{{task.id}}</p>
+                <p>{{task.main_image}}</p>
+                <p>{{task.question}}</p>
+            </li>
+        </ul>
     </div>
+    
 </template>
 
 <script>
-    export default {}
+    export default {
+        data: function () {
+            return {
+                tasks: []
+            }
+        },
+        methods: {
+            getTasks() {
+                axios.get('/api/quizlist')
+                    .then((res) => {
+                        this.tasks = res.data;
+                    });
+            }
+        },
+        mounted() {
+            this.getTasks();
+            console.log("its ok");
+            console.log(this);
+            console.log(this.tasks[0]);
+        }
+    }
 </script>
